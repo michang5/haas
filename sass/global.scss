@@ -1,0 +1,348 @@
+@import 'compass';
+//@import 'screen';
+@import 'base/fonts';
+@import 'base/style';
+@import 'base/media';
+//@import 'base/css3-mixins';
+
+/* ------------ base ------------ */
+body, html {
+	min-height: 100%!important;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-family: 'Roboto', "source-han-sans-traditional", sans-serif, 'arial', "微軟正黑體", "Microsoft JhengHei";
+//	font-size: 100%;
+	word-wrap: break-word;
+	word-break: normal;
+	line-height: 1.85;
+	background: $rice;
+}
+//h-style
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 500;
+	letter-spacing: 0;
+	line-height: 1.8;
+	font-family: "source-han-sans-traditional", sans-serif,
+}
+*:hover {
+	@include transition(color, .5s, ease-in);
+}
+//p
+p {
+	font-size: $l-font;
+	font-weight: 200;
+	font-family: 'Roboto', "source-han-sans-traditional", sans-serif;
+}
+a {
+	@include transition(color, .5s, ease-in);
+	&:hover, &:focus { 
+		text-decoration: none;
+	}
+}
+.clearfix {
+	@include clearfix;
+}
+ul, li {
+	margin: 0;
+	padding: 0;
+	-webkit-padding-start: 0;
+	list-style: none;
+}
+//element
+.btn-default {
+	@include border-radius(50px);
+	padding: 10px 20px;
+    background: $pink;
+    color: $white;
+	border:0;
+	outline:none;
+    &:hover, &:active, &:focus, &:active:hover, &:active:focus {
+        background: $dark-pink;
+    }
+}
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+.plus {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	overflow: hidden;
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		top: 50%;
+		left: 0;
+		margin-top: -1px;
+		background: $white;
+		box-shadow: 0 5px 10px #000;
+		height: 2px;
+	}
+	&::before {
+		@include transform(rotate(45deg));
+	}
+	&::after {
+		@include transform(rotate(-45deg));
+	}
+}
+//section
+#wrapper {
+	height: 100%;
+	min-height: 100%;
+    @include clearfix;
+}
+.section {
+	text-align: center;
+//	@include full-screen;
+	@include clearfix;
+	h2 {
+		font-weight: 700;
+		font-size: 3.5em;
+		text-align: center;
+		margin-bottom: 30px;
+		
+	}
+}
+#Carousel {
+	width: 100%;
+	height: 100%;
+    min-height: 600px;
+    overflow: hidden;
+	position: relative;
+	&.carousel {
+        height: 100%;
+    	min-height: 600px;
+        overflow: hidden;
+		.item, .carousel-inner, .mask {
+            height: 100%;
+   			min-height: 600px;
+		}
+		.mask {
+			position: absolute;
+			width: 100%;
+			z-index: 9;
+			background: image-url('dot.png')
+		}
+	}
+    @include respond-to (only-device){
+        &.carousel {
+            min-height: 560px; 
+            .item, .carousel-inner, .mask {
+				min-height: 560px;
+			}
+        }
+    }
+    @include respond-to (normal-mobile){
+        &.carousel {
+            .item, .carousel-inner, .mask {
+				
+            }
+        }
+    }
+}
+.carousel-fade {
+	.carousel-inner {
+		.item {
+			&:nth-child(1) {
+				background: image-url('slider1.jpg');
+			}
+			&:nth-child(2) {
+				background: image-url('slider2.jpg');
+			}
+			&:nth-child(3) {
+				background: image-url('slider3.jpg');
+			}
+			&:nth-child(1), &:nth-child(2), &:nth-child(3) {
+                -webkit-transition-property: opacity;
+                transition-property: opacity;
+				@include background-size(cover);
+				background-position: center;
+			}
+		}
+		.item, .active.left, .active.right {
+			opacity: 0;
+		}
+		.active, .next.left, .prev.right {
+		  opacity: 1;
+		}
+		.next, .prev, .active.left, .active.right {
+			left: 0;
+			-webkit-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+		}
+    }
+}
+.navbar {
+	@include transparent($yellow,0);
+	border-bottom: none;
+	text-align: center;
+	padding: 8px;
+	border-top: 8px solid $yellow;
+	h2.logo {
+		margin: 0 15px;
+		width: 116px;
+		font-size: $s-font;
+		color: $white;
+		text-shadow: 0 0 5px rgba($black, .6);
+		@include transition(all, .5s, ease-in);
+		img {
+			width: 100%;
+		}
+		* {
+			@include transition(all, .5s, ease-in);
+		}
+		span {
+			display: block;
+		}
+	}
+	h2.past-logo {
+		padding: 0;
+		margin: 4px;
+		width: 86px;
+		span {
+			display: none;
+		}
+	}
+	.navbar-toggle {
+		font-size: $l-font;
+		padding: 4px 6px;
+		position: absolute;
+		right: 0;
+		top: 3px;
+		border-radius: 0;
+		border: 0;
+		border-top: 1px solid $yellow;
+		border-bottom: 1px solid $yellow;
+		a {
+			color: $white;
+		}
+	}
+	.navbar-nav {
+		float: none;
+		text-align: center;
+		li {
+			float: none;
+			vertical-align: middle;
+			@include inline-block;
+			font-size: $l-font;
+			letter-spacing: .05em;
+			text-shadow: 0 0 5px rgba($black, .6), 0 2px 20px rgba($black, .3);
+			a {
+				color: $white;
+				&:hover, &:focus {
+					@include transparent($white,.6);
+					color: $white;
+				}
+				&:focus {
+					color: $white;
+				}
+			}
+		}
+	}
+	@include respond-to (only-mobile){
+		@include transparent($yellow,1);
+		border: 0;
+		color: $white;
+		padding: 8px 0;
+		h2.logo {
+			width: 86px;
+		}
+		.navbar-nav {
+			margin-bottom: 0;
+			li {
+				display: block;
+				text-shadow: 0 0 5px rgba($black, .6);
+				a {
+					padding: 16px 0;
+					&:hover, &:focus {
+						background: $orange;
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+}
+.navbar-default {
+	.navbar-toggle {
+		&:hover, &:focus {
+			background: transparent;
+		}
+	}
+	.navbar-collapse {
+		border: 0!important;
+	}
+}
+.navbar-header {
+	border: 0!important;
+}
+.past-main {
+	@include transparent($yellow,1);
+}
+#Home {
+	width: 100%;
+	min-height: 600px;
+	text-align: center;
+    @include clearfix;
+	.news {
+		width: 100%;
+		position: relative;
+		height: 80px;
+		bottom: 80px;
+		overflow: hidden;
+		line-height: 80px;
+		@include transparent($white, .5);
+		text-align: left;
+		color: $white;
+		span {
+			display: inline-block;
+			padding: 0 20px;
+			&.title {
+				font-size: $xxxl-font;
+				font-family: 'Raleway', sans-serif;
+				background: $orange;
+			}
+			&.latest-news {
+				font-size: $xl-font;
+				text-shadow: 0 0 5px rgba($black, .6), 0 2px 20px rgba($black, .3);
+			}
+		}
+	}
+	@include respond-to (only-device){
+        min-height: 560px;
+		.news {
+			position: static;
+			background: $yellow;
+			display: block;
+			height: auto;
+			line-height: normal;
+			span {
+				padding: 0 10px;
+				&.title {
+					font-size: $xl-font;
+					line-height: 50px;
+				}
+				&.latest-news {
+					font-size: $xl-font;
+					line-height: $xxxl-font;
+					padding: 10px 0;
+				}
+			}
+		}
+	}
+	@include respond-to (normal-mobile){
+	}
+    @include respond-to (xxs-mobile){
+    } 
+}
+#Footer {
+	background: $brown;
+	color: $white;
+	padding: 30px;
+}

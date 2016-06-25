@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<meta name="description" content="">
+
+	<!--share info-->
+	<meta property="og:title" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content="">
+	
+	<title>HaaS Cafe Pasta</title>
+	<meta name="description" content="" />
+	<link rel="shortcut icon" href="images/favicon.png">
+	<!--css-->
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/global.css" rel="stylesheet">
+	<link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:500,700" rel="stylesheet">
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/html5shiv.min.js"></script>
+		<script type="text/javascript" src="js/respond.min.js"></script>
+	<![endif]-->
+	<script src="https://use.typekit.net/oem8boq.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+</head>
+<body data-spy="scroll" data-target="#navigation" id="index">
+	
+	<!--Navigation-->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<a href="#" class="nav-open">
+						<div class="inner"><span>MENU</span></div>
+					</a>
+				</button>
+				<h2 class="logo"><a href="#"><img src="images/logo_haas.png" alt="Haas"></a></h2>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="about.html">關於我們</a></li>
+					<li><a href="news_list.html">最新消息</a></li>
+					<li><a href="menu.html">餐點介紹</a></li>
+					<li><a href="space.html">用餐環境</a></li>
+					<li><a href="contact.html">聯絡我們</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+		
+	<!-- wrapper -->
+	<div id="wrapper">
+		<div id="Home" class="section">
+			<div id="Carousel" class="carousel slide carousel-fade">
+				<div class="carousel-inner" style="height: 100%;">
+					<div class="item active"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+				</div>
+			</div>
+			<div class="news">
+				<div class="container">
+					<span class="title">NEWS</span>
+					<span class="latest-news">近期重點消息重點消息，重點消息消息消息消息近期重點消息重點消息，重點消息消息消息消息</span>
+				</div>
+				
+			</div>
+		</div>
+		<div id="Footer" class="section">
+			<div class="container">
+				<p>copyright © HaaS Cafe Pasta 2016</p>
+			</div>
+		</div>
+	</div>
+	
+	<!--jQuery--> 
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js" ></script>
+	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
+	<script>
+		$(function() {
+			$(".nav li a[href^='#'], .logo-s a, .logo a").on('click', function(e) {
+				e.preventDefault();
+				var hash = this.hash;
+
+				$('html, body').animate({
+					scrollTop: $(hash).offset().top
+				}, 300, function(){
+					window.location.hash = hash;
+				});
+			});
+			var mainbottom = $('#Carousel').offset().top + $('#Carousel').height();
+
+			$(window).on('scroll',function(){
+				stop = Math.round($(window).scrollTop());
+				if (stop > mainbottom) {
+					$('.navbar').addClass('past-main');
+					$('h2.logo').addClass('past-logo');
+				} else {
+					$('.navbar').removeClass('past-main');
+					$('h2.logo').removeClass('past-logo');
+				}
+			});
+			$('.nav a').on('click', function(){
+				$('.navbar-toggle').click()
+			});
+		});
+		$('.carousel').carousel();
+		$(function() {
+			$(".carousel").swiperight(function() {
+				$(this).carousel('prev');
+			});
+			$(".carousel").swipeleft(function() {
+				$(this).carousel('next');
+			});
+		});
+	</script>
+</body>
+</html>

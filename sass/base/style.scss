@@ -1,0 +1,76 @@
+//color
+$primary-color: #ffd74c;
+$yellow: #ffd74c;
+$light-orange: #ff9d37;
+$orange: #ff8200;
+
+$black: #000;
+$white: #fff;
+$gray: #666;
+$dark-gray: #333;
+$rice: #edeadf;
+
+
+$light-yellow: #ffe26f;
+$light-green: #e3e7cc;
+$green: #677600;
+$dark-green: #474a00;
+
+$pink: #ec6833;
+$dark-pink: #ba0926;
+$red: #d34f42;
+$brown: #381e00;
+
+//font style
+$xxxxs-font: .4em;
+$xxxs-font: .58em;
+$xxs-font: .75em;
+$xs-font: .8em;
+$s-font: .9em;
+$m-font: 1em;
+$l-font: 1.125em;
+$xl-font: 1.25em;
+$xxl-font: 1.5em;
+$xxxl-font: 1.75em;
+$xxxxl-font: 2em;
+$xxxxxl-font: 2.5em;
+$xxxxxxl-font: 3em;
+
+@mixin full-screen {
+//	height: 100%;
+	min-height: 100%;
+	width: 100%;
+}
+@mixin clearfix {
+	&:after, &:before {
+		content: "";
+		display: table;
+	}
+	&:after{
+		clear:both;
+	}
+	*zoom:1;
+}
+@mixin selection {
+    ::-moz-selection { @content; }
+    ::selection { @content; }
+}
+@mixin transparent($color, $alpha) {
+	$rgba: rgba($color, $alpha);
+	$ie-hex-str: ie-hex-str($rgba);
+	background-color: transparent;
+	background-color: $rgba;
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+	zoom: 1;
+}
+@mixin info-font {
+	font-size: $s-font;
+	line-height: $l-font;
+}
+@mixin inline-block {
+	display: -moz-inline-stack;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
