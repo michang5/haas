@@ -1,0 +1,104 @@
+/* ------------ base ------------ */
+#Home {
+  width: 100%;
+  min-height: 600px;
+  text-align: center;
+  position: relative;
+  *zoom: 1;
+}
+#Home:after, #Home:before {
+  content: "";
+  display: table;
+}
+#Home:after {
+  clear: both;
+}
+#Home .news {
+  width: 100%;
+  position: absolute;
+  height: 80px;
+  bottom: 0;
+  overflow: hidden;
+  line-height: 80px;
+  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.5);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#80FFFFFF,endColorstr=#80FFFFFF);
+  zoom: 1;
+  text-align: left;
+  color: #fff;
+}
+#Home .news span {
+  display: inline-block;
+  padding: 0 20px;
+}
+#Home .news span.title {
+  font-size: 1.75em;
+  font-family: 'Montserrat', sans-serif;
+  background: #ff8200;
+  text-align: center;
+}
+#Home .news span.latest-news {
+  font-size: 1.25em;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6), 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+@media only screen and (max-width: 768px) {
+  #Home {
+    min-height: 560px;
+  }
+  #Home .news {
+    position: static;
+    background-color: transparent;
+    background-color: rgba(255, 215, 76, 0.5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#80FFD74C,endColorstr=#80FFD74C);
+    zoom: 1;
+    display: block;
+    height: auto;
+    line-height: normal;
+    color: #333;
+  }
+  #Home .news span {
+    padding: 0 10px;
+  }
+  #Home .news span.title {
+    font-size: 1.25em;
+    line-height: 50px;
+  }
+  #Home .news span.latest-news {
+    font-size: 1.25em;
+    line-height: 1.75em;
+    padding: 10px 0;
+    text-shadow: 0 0 0;
+  }
+}
+
+.info-group {
+  padding: 40px 0;
+  background: #ffd74c;
+  text-align: center;
+}
+.info-group h3 {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  background: #ffedaf;
+  text-align: center;
+  padding: 14px 0;
+  color: #ff6423;
+}
+.info-group h3 i {
+  font-size: 50px;
+}
+.info-group h3 span {
+  font-size: 16px;
+  display: block;
+  line-height: 0.8em;
+}
+.info-group h4 {
+  margin: 0 auto;
+  font-size: 1.25em;
+}
+.info-group h4 > span {
+  display: block;
+}

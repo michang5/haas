@@ -1,0 +1,108 @@
+@import 'compass';
+//@import 'screen';
+@import 'base/fonts';
+@import 'base/style';
+@import 'base/media';
+//@import 'base/css3-mixins';
+
+/* ------------ base ------------ */
+
+#Home {
+	width: 100%;
+	min-height: 600px;
+	text-align: center;
+	position: relative;
+    @include clearfix;
+	.news {
+		width: 100%;
+		position: absolute;
+		height: 80px;
+		bottom: 0;
+		overflow: hidden;
+		line-height: 80px;
+		@include transparent($white, .5);
+		text-align: left;
+		color: $white;
+		span {
+			display: inline-block;
+			padding: 0 20px;
+			&.title {
+				font-size: $xxxl-font;
+				font-family: 'Montserrat', sans-serif;
+				background: $orange;
+				text-align: center;
+			}
+			&.latest-news {
+				font-size: $xl-font;
+				text-shadow: 0 0 5px rgba($black, .6), 0 2px 20px rgba($black, .3);
+			}
+		}
+	}
+	@include respond-to (only-device){
+        min-height: 560px;
+		.news {
+			position: static;
+			@include transparent($yellow, .5);
+//			background: $yellow;
+			display: block;
+			height: auto;
+			line-height: normal;
+			color: $dark-gray;
+			span {
+				padding: 0 10px;
+				&.title {
+					font-size: $xl-font;
+					line-height: 50px;
+				}
+				&.latest-news {
+					font-size: $xl-font;
+					line-height: $xxxl-font;
+					padding: 10px 0;
+					text-shadow: 0 0 0;
+				}
+			}
+		}
+	}
+	@include respond-to (normal-mobile){
+	}
+    @include respond-to (xxs-mobile){
+    } 
+}
+.info-group {
+	padding: 40px 0;
+	background: $yellow;
+	text-align: center;
+//	.col-sm-4:nth-child(3) {
+//		h4 {
+//			text-align: left;
+//		}
+//	}
+	h3 {
+		display: inline-block;
+		width: 120px;
+		height: 120px;
+		border: 6px solid $white;
+		border-radius: 50%;
+		background: $light-yellow;
+		text-align: center;
+		padding: 14px 0;
+		color: $dark-orange;
+		i {
+			font-size: 50px;
+		}
+		span {
+			font-size: 16px;
+			display: block;
+			line-height: $xs-font;
+		}
+	}
+	h4 {
+		margin: 0 auto;
+		font-size: $xl-font;
+		> span {
+			display: block;
+		}
+	}
+	@include respond-to (normal-mobile){
+	}
+}

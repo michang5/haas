@@ -18,14 +18,14 @@ body {
 	word-wrap: break-word;
 	word-break: normal;
 	line-height: 1.85;
-	background: $rice;
+	background: $light-yellow;
 }
 //h-style
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 500;
 	letter-spacing: 0;
 	line-height: 1.8;
-	font-family: "source-han-sans-traditional", sans-serif,
+	font-family: 'Montserrat', "source-han-sans-traditional", sans-serif,
 }
 *:hover {
 	@include transition(color, .5s, ease-in);
@@ -93,9 +93,17 @@ ul, li {
 }
 //section
 #wrapper {
-	height: 100%;
+//	height: 100%;
 	min-height: 100%;
+	padding-bottom: 100px;
     @include clearfix;
+	
+	
+	
+	> .container {
+		overflow: hidden;
+		
+	}
 }
 .section {
 	text-align: center;
@@ -284,65 +292,15 @@ ul, li {
 }
 .past-main {
 	@include transparent($yellow,1);
+	box-shadow: 0 10px 20px rgba($brown,.3);
 }
-#Home {
-	width: 100%;
-	min-height: 600px;
-	text-align: center;
-    @include clearfix;
-	.news {
-		width: 100%;
-		position: relative;
-		height: 80px;
-		bottom: 80px;
-		overflow: hidden;
-		line-height: 80px;
-		@include transparent($white, .5);
-		text-align: left;
-		color: $white;
-		span {
-			display: inline-block;
-			padding: 0 20px;
-			&.title {
-				font-size: $xxxl-font;
-				font-family: 'Raleway', sans-serif;
-				background: $orange;
-			}
-			&.latest-news {
-				font-size: $xl-font;
-				text-shadow: 0 0 5px rgba($black, .6), 0 2px 20px rgba($black, .3);
-			}
-		}
-	}
-	@include respond-to (only-device){
-        min-height: 560px;
-		.news {
-			position: static;
-			background: $yellow;
-			display: block;
-			height: auto;
-			line-height: normal;
-			span {
-				padding: 0 10px;
-				&.title {
-					font-size: $xl-font;
-					line-height: 50px;
-				}
-				&.latest-news {
-					font-size: $xl-font;
-					line-height: $xxxl-font;
-					padding: 10px 0;
-				}
-			}
-		}
-	}
-	@include respond-to (normal-mobile){
-	}
-    @include respond-to (xxs-mobile){
-    } 
-}
-#Footer {
-	background: $brown;
+footer {
+	@include clearfix;
+	background: $light-orange;
 	color: $white;
-	padding: 30px;
+//	height: 100px;
+	line-height: 100px;
+	#index & {
+		margin-top: -100px;
+	}
 }

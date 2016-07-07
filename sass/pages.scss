@@ -1,0 +1,14 @@
+@import 'compass';
+//@import 'screen';
+@import 'base/fonts';
+@import 'base/style';
+@import 'base/media';
+//@import 'base/css3-mixins';
+
+/* ------------ base ------------ */
+
+.slide {
+	> img {
+		width: 100%;
+	}
+}
