@@ -97,12 +97,11 @@ ul, li {
 	min-height: 100%;
 	padding-bottom: 100px;
     @include clearfix;
-	
-	
-	
+	#about &, #contact &, #meals &, #space & {
+		padding-bottom: 496px;
+	}
 	> .container {
 		overflow: hidden;
-		
 	}
 }
 .section {
@@ -117,105 +116,31 @@ ul, li {
 		
 	}
 }
-#Carousel {
-	width: 100%;
-	height: 100%;
-    min-height: 600px;
-    overflow: hidden;
-	position: relative;
-	&.carousel {
-        height: 100%;
-    	min-height: 600px;
-        overflow: hidden;
-		.item, .carousel-inner, .mask {
-            height: 100%;
-   			min-height: 600px;
-		}
-		.mask {
-			position: absolute;
-			width: 100%;
-			z-index: 9;
-			background: image-url('dot.png')
-		}
-	}
-    @include respond-to (only-device){
-        &.carousel {
-            min-height: 560px; 
-            .item, .carousel-inner, .mask {
-				min-height: 560px;
-			}
-        }
-    }
-    @include respond-to (normal-mobile){
-        &.carousel {
-            .item, .carousel-inner, .mask {
-				
-            }
-        }
-    }
-}
-.carousel-fade {
-	.carousel-inner {
-		.item {
-			&:nth-child(1) {
-				background: image-url('slider1.jpg');
-			}
-			&:nth-child(2) {
-				background: image-url('slider2.jpg');
-			}
-			&:nth-child(3) {
-				background: image-url('slider3.jpg');
-			}
-			&:nth-child(1), &:nth-child(2), &:nth-child(3) {
-                -webkit-transition-property: opacity;
-                transition-property: opacity;
-				@include background-size(cover);
-				background-position: center;
-			}
-		}
-		.item, .active.left, .active.right {
-			opacity: 0;
-		}
-		.active, .next.left, .prev.right {
-		  opacity: 1;
-		}
-		.next, .prev, .active.left, .active.right {
-			left: 0;
-			-webkit-transform: translate3d(0, 0, 0);
-			transform: translate3d(0, 0, 0);
-		}
-    }
-}
+
 .navbar {
 	@include transparent($yellow,0);
 	border-bottom: none;
 	text-align: center;
 	padding: 8px;
 	border-top: 8px solid $yellow;
-	h2.logo {
+	h2.logo-big {
 		margin: 0 15px;
 		width: 116px;
 		font-size: $s-font;
 		color: $white;
 		text-shadow: 0 0 5px rgba($black, .6);
 		@include transition(all, .5s, ease-in);
+		a {
+			display: block;
+		}
 		img {
 			width: 100%;
-		}
-		* {
-			@include transition(all, .5s, ease-in);
-		}
-		span {
-			display: block;
 		}
 	}
 	h2.past-logo {
 		padding: 0;
 		margin: 4px;
 		width: 86px;
-		span {
-			display: none;
-		}
 	}
 	.navbar-toggle {
 		font-size: $l-font;
@@ -255,14 +180,19 @@ ul, li {
 	}
 	@include respond-to (only-mobile){
 		@include transparent($yellow,1);
+		box-shadow: 0 10px 20px rgba($brown,.3);
 		border: 0;
 		color: $white;
 		padding: 8px 0;
-		h2.logo {
+		h2.logo-big {
 			width: 86px;
+		}
+		.inner {
+			text-shadow: 0 0 5px rgba($black, .6), 0 2px 20px rgba($black, .3);
 		}
 		.navbar-nav {
 			margin-bottom: 0;
+			
 			li {
 				display: block;
 				text-shadow: 0 0 5px rgba($black, .6);
@@ -294,13 +224,50 @@ ul, li {
 	@include transparent($yellow,1);
 	box-shadow: 0 10px 20px rgba($brown,.3);
 }
+.info-group {
+	padding: 40px 0;
+	background: $yellow;
+	text-align: center;
+	h3 {
+		display: inline-block;
+		width: 120px;
+		height: 120px;
+		border: 6px solid $white;
+		border-radius: 50%;
+		background: $light-yellow;
+		text-align: center;
+		padding: 14px 0;
+		color: $dark-orange;
+		i {
+			font-size: 50px;
+		}
+		span {
+			font-size: 16px;
+			display: block;
+			line-height: $xs-font;
+		}
+	}
+	h4 {
+		margin: 0 auto;
+		font-size: $xl-font;
+		> span {
+			display: block;
+		}
+	}
+	@include respond-to (normal-mobile){
+	}
+}
 footer {
 	@include clearfix;
-	background: $light-orange;
-	color: $white;
-//	height: 100px;
+	background: $orange;
 	line-height: 100px;
-	#index & {
+	#index & , #meals & {
 		margin-top: -100px;
+	}
+	#about &, #contact &, #meals &, #space & {
+		margin-top: -495px;
+	}
+	p {
+		color: $white;
 	}
 }

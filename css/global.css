@@ -129,6 +129,9 @@ ul, li {
 #wrapper:after {
   clear: both;
 }
+#about #wrapper, #contact #wrapper, #meals #wrapper, #space #wrapper {
+  padding-bottom: 496px;
+}
 #wrapper > .container {
   overflow: hidden;
 }
@@ -151,67 +154,6 @@ ul, li {
   margin-bottom: 30px;
 }
 
-#Carousel {
-  width: 100%;
-  height: 100%;
-  min-height: 600px;
-  overflow: hidden;
-  position: relative;
-}
-#Carousel.carousel {
-  height: 100%;
-  min-height: 600px;
-  overflow: hidden;
-}
-#Carousel.carousel .item, #Carousel.carousel .carousel-inner, #Carousel.carousel .mask {
-  height: 100%;
-  min-height: 600px;
-}
-#Carousel.carousel .mask {
-  position: absolute;
-  width: 100%;
-  z-index: 9;
-  background: url('../images/dot.png');
-}
-@media only screen and (max-width: 768px) {
-  #Carousel.carousel {
-    min-height: 560px;
-  }
-  #Carousel.carousel .item, #Carousel.carousel .carousel-inner, #Carousel.carousel .mask {
-    min-height: 560px;
-  }
-}
-
-.carousel-fade .carousel-inner .item:nth-child(1) {
-  background: url('../images/slider1.jpg?1466762961');
-}
-.carousel-fade .carousel-inner .item:nth-child(2) {
-  background: url('../images/slider2.jpg?1466760024');
-}
-.carousel-fade .carousel-inner .item:nth-child(3) {
-  background: url('../images/slider3.jpg?1466762874');
-}
-.carousel-fade .carousel-inner .item:nth-child(1), .carousel-fade .carousel-inner .item:nth-child(2), .carousel-fade .carousel-inner .item:nth-child(3) {
-  -webkit-transition-property: opacity;
-  transition-property: opacity;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-position: center;
-}
-.carousel-fade .carousel-inner .item, .carousel-fade .carousel-inner .active.left, .carousel-fade .carousel-inner .active.right {
-  opacity: 0;
-}
-.carousel-fade .carousel-inner .active, .carousel-fade .carousel-inner .next.left, .carousel-fade .carousel-inner .prev.right {
-  opacity: 1;
-}
-.carousel-fade .carousel-inner .next, .carousel-fade .carousel-inner .prev, .carousel-fade .carousel-inner .active.left, .carousel-fade .carousel-inner .active.right {
-  left: 0;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
 .navbar {
   background-color: transparent;
   background-color: rgba(255, 215, 76, 0);
@@ -222,7 +164,7 @@ ul, li {
   padding: 8px;
   border-top: 8px solid #ffd74c;
 }
-.navbar h2.logo {
+.navbar h2.logo-big {
   margin: 0 15px;
   width: 116px;
   font-size: 0.9em;
@@ -233,25 +175,16 @@ ul, li {
   -webkit-transition: all, 0.5s, ease-in;
   transition: all, 0.5s, ease-in;
 }
-.navbar h2.logo img {
-  width: 100%;
-}
-.navbar h2.logo * {
-  -moz-transition: all, 0.5s, ease-in;
-  -o-transition: all, 0.5s, ease-in;
-  -webkit-transition: all, 0.5s, ease-in;
-  transition: all, 0.5s, ease-in;
-}
-.navbar h2.logo span {
+.navbar h2.logo-big a {
   display: block;
+}
+.navbar h2.logo-big img {
+  width: 100%;
 }
 .navbar h2.past-logo {
   padding: 0;
   margin: 4px;
   width: 86px;
-}
-.navbar h2.past-logo span {
-  display: none;
 }
 .navbar .navbar-toggle {
   font-size: 1.125em;
@@ -301,12 +234,16 @@ ul, li {
     background-color: #ffd74c;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFD74C,endColorstr=#FFFFD74C);
     zoom: 1;
+    box-shadow: 0 10px 20px rgba(56, 30, 0, 0.3);
     border: 0;
     color: #fff;
     padding: 8px 0;
   }
-  .navbar h2.logo {
+  .navbar h2.logo-big {
     width: 86px;
+  }
+  .navbar .inner {
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6), 0 2px 20px rgba(0, 0, 0, 0.3);
   }
   .navbar .navbar-nav {
     margin-bottom: 0;
@@ -343,10 +280,41 @@ ul, li {
   box-shadow: 0 10px 20px rgba(56, 30, 0, 0.3);
 }
 
+.info-group {
+  padding: 40px 0;
+  background: #ffd74c;
+  text-align: center;
+}
+.info-group h3 {
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  background: #ffedaf;
+  text-align: center;
+  padding: 14px 0;
+  color: #ff6423;
+}
+.info-group h3 i {
+  font-size: 50px;
+}
+.info-group h3 span {
+  font-size: 16px;
+  display: block;
+  line-height: 0.8em;
+}
+.info-group h4 {
+  margin: 0 auto;
+  font-size: 1.25em;
+}
+.info-group h4 > span {
+  display: block;
+}
+
 footer {
   *zoom: 1;
-  background: #ff9d37;
-  color: #fff;
+  background: #ff8200;
   line-height: 100px;
 }
 footer:after, footer:before {
@@ -356,6 +324,12 @@ footer:after, footer:before {
 footer:after {
   clear: both;
 }
-#index footer {
+#index footer, #meals footer {
   margin-top: -100px;
+}
+#about footer, #contact footer, #meals footer, #space footer {
+  margin-top: -495px;
+}
+footer p {
+  color: #fff;
 }
